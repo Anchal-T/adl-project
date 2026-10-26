@@ -63,19 +63,3 @@ pytest
 ```
 
 The tests run on CPU using a small synthetic Kvasir-style dataset generated on the fly. They check model output shapes, the loss and metric values on known tensors, the split and preprocessing, and a short train, evaluate and explain run for both models.
-
-## Structure
-
-```
-data.py                 Kvasir-SEG loader, preprocessing, augmentation, seeded split, download helper
-models/unet.py          U-Net
-models/attention_unet.py  Attention U-Net with additive attention gates
-models/__init__.py      model registry
-losses.py               BCE + lambda * Dice loss
-metrics.py              Dice, IoU, precision, recall at threshold 0.5
-utils.py                seeding, device selection, checkpoint save and load
-train.py                training with early stopping
-evaluate.py             test-set evaluation
-explain.py              Seg-Grad-CAM, attention maps, E_in and figures
-tests/                  pytest smoke tests
-```
